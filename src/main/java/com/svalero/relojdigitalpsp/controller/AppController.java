@@ -23,6 +23,7 @@ import java.util.Scanner;
 public class AppController {
     public Label lbClock;
     public TextField tfSchedule;
+    public TextField tfStartTimerTime;
     private Map<Integer, StopwatchController> allStopwatches;
     private Map<Integer, TimerController> allTimers;
     public TextArea logArea;
@@ -74,8 +75,6 @@ public class AppController {
             stopwatchController.stopChrono();
     }
 
-
-    //TODO TIMERS
     public void startTimer(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -83,12 +82,14 @@ public class AppController {
             String timeout = tfSchedule.getText();
             if (timeout.length() == 0)
                 timeout = "0";
-
-            TimerController timerController = new TimerController(Integer.parseInt(timeout));
+            String delay = tfStartTimerTime.getText();
+            if (delay.length() == 0)
+                delay = "0";
+            posTimer++;
+            TimerController timerController = new TimerController(Integer.parseInt(delay), Integer.parseInt(timeout), posTimer);
+            allTimers.put(posTimer, timerController);
             loader.setController(timerController);
             VBox timerBox = loader.load();
-            posTimer++;
-            allTimers.put(posTimer, timerController);
             tabPane.getTabs().add(new Tab("Timer nº " + posTimer, timerBox));
 
         } catch (IOException ioe) {
@@ -98,8 +99,8 @@ public class AppController {
 
     @FXML
     public void stopAllTimers(ActionEvent event) {
-        for (StopwatchController stopwatchController : allStopwatches.values())
-            stopwatchController.stopChrono();
+        for (TimerController timerController : allTimers.values())
+            timerController.stopTimer();
     }
 
 

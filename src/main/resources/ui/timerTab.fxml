@@ -6,19 +6,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="btStartTimer" layoutX="47.0" layoutY="115.0" mnemonicParsing="false" onAction="#startChrono" text="Iniciar" />
-            <Button fx:id="btResetTimer" layoutX="145.0" layoutY="115.0" mnemonicParsing="false" onAction="#resetChrono" text="Resetear" />
-            <Button fx:id="btStopTimer" layoutX="258.0" layoutY="115.0" mnemonicParsing="false" onAction="#stopChrono" text="Detener" />
-            <TextField fx:id="tfTimerTime" layoutX="101.0" layoutY="37.0" prefHeight="56.0" prefWidth="146.0" promptText="En seg">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </TextField>
-         </children>
-      </AnchorPane>
-   </children>
+<?import javafx.scene.control.Label?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0"
+      prefWidth="351.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="btStartTimer" layoutX="47.0" layoutY="115.0" mnemonicParsing="false"
+                        onAction="#startTimer" text="Iniciar"/>
+                <Button fx:id="btResetTimer" layoutX="145.0" layoutY="115.0" mnemonicParsing="false"
+                        onAction="#resetTimer" text="Resetear"/>
+                <Button fx:id="btStopTimer" layoutX="258.0" layoutY="115.0" mnemonicParsing="false"
+                        onAction="#stopTimer" text="Detener"/>
+                <Label fx:id="lbTimerTime" layoutX="140.0" layoutY="53.0" prefHeight="46.0" prefWidth="72.0"
+                       text="00:00">
+                    <font>
+                        <Font size="29.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="lbInitialTime" layoutX="200.0" layoutY="70.0" prefHeight="46.0" prefWidth="72.0"
+                       text="00:00">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>

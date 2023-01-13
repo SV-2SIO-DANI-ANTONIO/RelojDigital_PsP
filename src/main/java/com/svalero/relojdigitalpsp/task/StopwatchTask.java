@@ -15,17 +15,12 @@ public class StopwatchTask extends Task<Integer> {
 
     @Override
     protected Integer call() throws Exception {
-        System.out.println("stopwatch on");
         stopwatch.start();
         while (true) {
-
-            String elapsed = DurationFormatUtils.formatDuration(stopwatch.getTime(), "HH:MM:SS.SSS");
+            String elapsed = DurationFormatUtils.formatDuration(stopwatch.getTime(), "HH:mm:ss.SSS");
             String elapsedFormatted = elapsed.substring(3, Math.min(elapsed.length(), 8));
-            System.out.println(elapsedFormatted);
             updateMessage(elapsedFormatted);
-
         }
-
     }
 }
 
