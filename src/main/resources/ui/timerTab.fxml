@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btStartTimer" layoutX="47.0" layoutY="115.0" mnemonicParsing="false" onAction="#startChrono" text="Iniciar" />
+            <Button fx:id="btResetTimer" layoutX="145.0" layoutY="115.0" mnemonicParsing="false" onAction="#resetChrono" text="Resetear" />
+            <Button fx:id="btStopTimer" layoutX="258.0" layoutY="115.0" mnemonicParsing="false" onAction="#stopChrono" text="Detener" />
+            <TextField fx:id="tfTimerTime" layoutX="101.0" layoutY="37.0" prefHeight="56.0" prefWidth="146.0" promptText="En seg">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
