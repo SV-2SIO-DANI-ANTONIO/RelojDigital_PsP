@@ -8,9 +8,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,11 +60,10 @@ public class AppController {
             String timeout = tfSchedule.getText();
             if (timeout.length() == 0)
                 timeout = "0";
-
-            StopwatchController stopwatchController = new StopwatchController(Integer.parseInt(timeout));
+            posStopwatch++;
+            StopwatchController stopwatchController = new StopwatchController(Integer.parseInt(timeout), posStopwatch);
             loader.setController(stopwatchController);
             VBox stopwatchBox = loader.load();
-            posStopwatch++;
             allStopwatches.put(posStopwatch, stopwatchController);
             tabPane.getTabs().add(new Tab("Chrono nº " + posStopwatch, stopwatchBox));
 
@@ -106,31 +109,25 @@ public class AppController {
 
     //TODO LOG
     @FXML
-    public void showLog(ActionEvent event) {
-        try {
-            // Quitar comentario para descarga desde fichero "dlc.txt".
-            File logFile = new File("multidescargas.log");
-
-            // Quitar comentario para descarga desde el fichero que el usuario seleccione.
-            //FileChooser fileChooser = new FileChooser();
-            //File dlcFile = fileChooser.showOpenDialog(tfUrl.getScene().getWindow());
-            if (logFile == null)
-                return;
-
-            // Leer fichero
-            Scanner reader = new Scanner(logFile);
-            String allText = "";
-            while (reader.hasNextLine()) {
-                String data = reader.nextLine();
-                System.out.println(data);
-                allText += data + "\n";
-                // Lanzar controlador y descarga
+    public void showLog(ActionEvent actionEvent) throws IOException, IllegalArgumentException {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                File file = new File("log" + File.separator + "RelojDigital.log");
+                Desktop.getDesktop().open(file);
+            } catch (IOException ioe) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ha habido un error.");
+                alert.show();
+            } catch (IllegalArgumentException iae) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Ha habido un error al abrir el log. Es posible que no exista.");
+                alert.show();
             }
-            logArea.setText(allText);
-            reader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Se ha producido un error");
-            e.printStackTrace();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("No soportado.");
+            alert.show();
         }
+
     }
 }

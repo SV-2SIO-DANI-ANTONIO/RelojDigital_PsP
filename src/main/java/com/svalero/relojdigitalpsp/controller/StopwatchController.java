@@ -16,9 +16,11 @@ public class StopwatchController implements Initializable {
     private Integer delay;
     private StopwatchTask stopwatchTask;
     public Label lbChronoElapsed;
+    Integer chronoNumber;
 
-    public StopwatchController(Integer delay) {
+    public StopwatchController(Integer delay, Integer chronoNumber) {
         this.delay = delay;
+        this.chronoNumber=chronoNumber;
     }
 
 
@@ -52,8 +54,10 @@ public class StopwatchController implements Initializable {
     }
 
     public void stopChrono() {
-        if ((stopwatchTask != null) && (stopwatchTask.stopwatch.isStarted()))
+        if ((stopwatchTask != null) && (stopwatchTask.stopwatch.isStarted())) {
+            log.info("El cronometro nº" + chronoNumber+ " se ha detenido con " + stopwatchTask.elapsedFormatted + " acumulado");
             stopwatchTask.stopwatch.suspend();
+        }
     }
 
     public void resetChrono() {

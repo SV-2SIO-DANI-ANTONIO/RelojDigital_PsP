@@ -12,13 +12,14 @@ import java.util.concurrent.TimeUnit;
 public class StopwatchTask extends Task<Integer> {
     private static final Logger log = LogManager.getLogger(StopwatchController.class);
     public StopWatch stopwatch = new StopWatch();
+    public String elapsedFormatted;
 
     @Override
     protected Integer call() throws Exception {
         stopwatch.start();
         while (true) {
             String elapsed = DurationFormatUtils.formatDuration(stopwatch.getTime(), "HH:mm:ss.SSS");
-            String elapsedFormatted = elapsed.substring(3, Math.min(elapsed.length(), 8));
+            elapsedFormatted = elapsed.substring(3, Math.min(elapsed.length(), 8));
             updateMessage(elapsedFormatted);
         }
     }

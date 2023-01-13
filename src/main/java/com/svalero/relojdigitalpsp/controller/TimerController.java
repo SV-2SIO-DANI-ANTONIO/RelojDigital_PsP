@@ -67,8 +67,10 @@ public class TimerController implements Initializable {
     }
 
     public void stopTimer() {
-        if ((timerTask != null) && (timerTask.stopwatch.isStarted()))
+        if ((timerTask != null) && (timerTask.stopwatch.isStarted())) {
+            log.info("El temporizador nº" + timerNumber+ " se ha detenido con " + timerTask.tRemainingFormatted + " restante");
             timerTask.stopwatch.suspend();
+        }
     }
 
     public void resetTimer() {
