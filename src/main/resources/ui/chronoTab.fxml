@@ -11,7 +11,7 @@
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Label layoutX="140.0" layoutY="53.0" prefHeight="46.0" prefWidth="72.0" text="00:00">
+            <Label fx:id="lbChronoElapsed" layoutX="140.0" layoutY="53.0" prefHeight="46.0" prefWidth="72.0" text="00:00">
                <font>
                   <Font size="29.0" />
                </font>

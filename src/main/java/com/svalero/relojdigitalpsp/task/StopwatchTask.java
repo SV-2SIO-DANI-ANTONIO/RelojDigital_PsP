@@ -8,8 +8,6 @@ public class StopwatchTask extends Task<Integer> {
     protected Integer call() throws Exception {
         String elapsed;
         Stopwatch stopwatch = Stopwatch.createStarted();
-        elapsed= String.valueOf(stopwatch.elapsed());
-        //TODO A come
 
 
         return null;
