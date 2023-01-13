@@ -8,8 +8,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="413.0" prefWidth="572.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.svalero.relojdigitalpsp.HelloController">
+<VBox alignment="CENTER" prefHeight="413.0" prefWidth="572.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.svalero.relojdigitalpsp.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -18,13 +19,20 @@
          <content>
             <AnchorPane prefHeight="359.0" prefWidth="530.0">
                <children>
-                  <Button fx:id="btStartTimer" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startTimer" text="Inicar Temporizador" />
-                  <Button fx:id="btStartChrono" layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#startChrono" prefHeight="26.0" prefWidth="122.0" text="Iniciar Cronometro" />
-                  <TextField fx:id="tfSchedule" layoutX="366.0" layoutY="50.0" promptText="Iniciar en X segundos" />
-                  <Label layoutX="366.0" layoutY="18.0" text="Programar inicio:" />
-                  <TabPane id="tabPane" layoutY="100.0" prefHeight="258.0" prefWidth="526.0" tabClosingPolicy="ALL_TABS" />
-                  <Button fx:id="btStopAllTimer" layoutX="176.0" layoutY="14.0" mnemonicParsing="false" onAction="#stopAllTimers" text="Detener temporizadores" />
-                  <Button fx:id="btStopAllChrono" layoutX="176.0" layoutY="50.0" mnemonicParsing="false" onAction="#stopAllChronos" prefHeight="26.0" prefWidth="144.0" text="Detener cronometros" />
+                  <Button fx:id="btStartTimer" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onAction="#startTimer" text="Inicar Temporizador" />
+                  <Button fx:id="btStartChrono" layoutX="14.0" layoutY="83.0" mnemonicParsing="false" onAction="#startChrono" prefHeight="26.0" prefWidth="122.0" text="Iniciar Cronometro" />
+                  <TextField fx:id="tfSchedule" layoutX="366.0" layoutY="70.0" promptText="Iniciar en X segundos" />
+                  <Label layoutX="366.0" layoutY="48.0" text="Programar inicio:" />
+                  <TabPane id="tabPane" layoutY="117.0" prefHeight="241.0" prefWidth="526.0" tabClosingPolicy="ALL_TABS" />
+                  <Button fx:id="btStopAllTimer" layoutX="212.0" layoutY="57.0" mnemonicParsing="false" onAction="#stopAllTimers" text="Detener temporizadores" />
+                  <Button fx:id="btStopAllChrono" layoutX="212.0" layoutY="83.0" mnemonicParsing="false" onAction="#stopAllChronos" prefHeight="26.0" prefWidth="144.0" text="Detener cronometros" />
+                  <TextField fx:id="tfStartTimerTime" layoutX="141.0" layoutY="57.0" prefHeight="26.0" prefWidth="69.0" promptText="en seg" />
+                  <Label layoutX="14.0" layoutY="10.0" prefHeight="35.0" prefWidth="167.0" text="00:00:00">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btShowLog" layoutX="170.0" layoutY="20.0" mnemonicParsing="false" onAction="#showLog" text="Mostrar Log" />
                </children>
             </AnchorPane>
          </content>
